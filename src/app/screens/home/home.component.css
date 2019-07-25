@@ -1,0 +1,32 @@
+
+.container{
+  width: 70%;
+  margin-left: 20%;
+  
+}
+
+.cate-tab{
+  width:40%;
+  float: left;
+ 
+}
+button {
+  border: none;
+  background: #1abc9c;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 100px;
+  color: white;
+
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+a{
+  text-decoration: none;
+  
+
+}

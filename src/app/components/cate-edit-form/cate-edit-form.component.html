@@ -1,0 +1,15 @@
+<div class="hs">
+	<h1>Thông tin danh mục</h1>
+	Tên danh mục: <input (keyup)="editItem.name = $event.target.value"
+				type="text" [value]="editItem.name">
+	<br>
+
+	Ảnh học sinh <input 
+				(keyup)="editItem.avatar = $event.target.value"
+				type="text" [value]="editItem.avatar">
+	<br>
+
+	<button type="button" (click)="save()">Lưu lại</button>
+	<button type="button" (click)="clear()">Hủy</button>
+</div>  
+

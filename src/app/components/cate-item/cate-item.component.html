@@ -1,0 +1,10 @@
+<div *ngIf="itemCate!= undefine" style="margin-left: 40%">
+	<a href="./cate-detail/{{itemCate.id}}"><h2>{{itemCate.name}}</h2></a>
+	<img [src]="itemCate.avatar" width="200">
+	<br>
+	<button type="button" (click)="childOnEdit(itemCate)">edit</button>
+	<button type="button" (click)="childOnRemove(itemCate)">Remove</button>
+</div>
+<router-outlet>
+</router-outlet>
+ 

@@ -1,0 +1,17 @@
+<div class="container"> 
+	<button type="button"><a href="/addcate">Thêm danh mục</a></button>
+
+	<div *ngFor="let cate of category" class="cate-tab">
+		<a href="./cate-detail/{{cate.id}}"><h2>{{cate.name}}</h2></a>
+		<img [src]="cate.avatar" width="200">
+		<br>
+		<button type="button" (click)="childOnEdit(itemCate)">Edit</button>
+		<button type="button" (click)="childOnRemove(cate)">Remove</button>
+	</div>
+</div>
+
+
+
+
+
+

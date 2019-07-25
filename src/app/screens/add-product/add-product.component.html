@@ -1,0 +1,19 @@
+<p>đây là màn hình thêm sản phẩm</p>
+<div class="hs">
+	<h1>Thêm sản phẩm</h1>
+	Danh mục :
+	<br>
+	Tên sản phẩm: <input (keyup)="editItem.name = $event.target.value"
+				type="text" [value]="editItem.name">
+	<br>
+
+	Ảnh sản phẩm <input 
+				(keyup)="editItem.avatar = $event.target.value"
+				type="text" [value]="editItem.avatar">
+	<br>
+	Giá sản phẩm <input type="number"><br>
+	Chi tiết <input type="text"><br>
+
+	<button type="button" (click)="save()">Lưu lại</button>
+	<button type="button" (click)="clear()">Hủy</button>
+</div> 

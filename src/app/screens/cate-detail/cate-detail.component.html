@@ -1,0 +1,17 @@
+<p>đây là chi tiết danh mục {{id}}</p>
+<div class="container"> 
+	<button type="button"><a href="/addproduct">Thêm danh sản phẩm</a></button>
+
+	<div *ngFor="let pro of product" class="cate-tab">
+		<table border="1px">
+			<tr><img [src]="cate.image" width="200"></tr>
+			<tr><h2>{{pro.name}}</h2></tr>
+		</table>
+		
+		
+		<br>
+		<button type="button" (click)="childOnEdit(itemCate)">Edit</button>
+		<button type="button" (click)="childOnRemove(itemCate)">Remove</button>
+	<
+
+
