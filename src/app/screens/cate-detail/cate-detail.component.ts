@@ -15,16 +15,28 @@ export class CateDetailComponent implements OnInit {
     private route:ActivatedRoute,
     private router:Router
     ) 
-  {
-     
-   }
-  //id="0";
+    { }
+
+  
+  cateid:string;
   ngOnInit() {
-   this.id=this.route.snapshot.params.id;
-    this.proService.getProductList(id).subscribe((data)=>{
-      this.product = data;
+   this.cateid=this.route.snapshot.paramMap.get('cateid');
+   this.proService.getProductList(this.cateid).subscribe((data)=>{
+    this.product = data; 
+    });
+   
+  
+  }
+    product=[];
+
+  removeProduct(pro){
+
+    this.proService.removeProduct(this.cateid,pro.id).subscribe((data)=> {
+      console.log(data);
+      this.product=this.product.filter((item)=>item.id !=pro.id);
+     this.router.navigate(['cate-detail'+ this.cateid]);
+         
     });
   }
-  product=[];
-
+    
 }

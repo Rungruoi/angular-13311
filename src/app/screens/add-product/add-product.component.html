@@ -1,19 +1,68 @@
-<p>đây là màn hình thêm sản phẩm</p>
-<div class="hs">
-	<h1>Thêm sản phẩm</h1>
-	Danh mục :
-	<br>
-	Tên sản phẩm: <input (keyup)="editItem.name = $event.target.value"
-				type="text" [value]="editItem.name">
-	<br>
+<!-- {{cateid}} -->
 
-	Ảnh sản phẩm <input 
-				(keyup)="editItem.avatar = $event.target.value"
-				type="text" [value]="editItem.avatar">
-	<br>
-	Giá sản phẩm <input type="number"><br>
-	Chi tiết <input type="text"><br>
+<div class="container">
+  <form [formGroup]="model">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+    <label for="pwd">Tên sản phẩm:</label>
+    <input type="text" class="form-control" id="pwd" formControlName=name  >
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert alert-danger">
 
-	<button type="button" (click)="save()">Lưu lại</button>
-	<button type="button" (click)="clear()">Hủy</button>
-</div> 
+        <div *ngIf="name.errors.required">
+          Điền tên danh mục
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Tên danh mục cần ít nhất 4 ký tự
+        </div>
+        
+  </div>
+ 
+  <div class="form-group">
+    <label for="pwd">Ảnh danh mục:</label>
+    <input type="text" class="form-control" id="pwd" formControlName=image>
+    <div *ngIf="image.invalid && (image.dirty || image.touched)"
+        class="alert alert-danger">
+        <div *ngIf="image.errors.required">
+          Điền tên đường dẫn ảnh cho sản phẩm
+        </div> 
+       
+  </div>
+   <div class="form-group">
+    <label for="pwd">Giá sản phẩm(USD):</label>
+    <input type="number" class="form-control" id="pwd" formControlName=price>
+    <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+      <div *ngIf="price.errors.required">
+        Điền giá cho sản phẩm 
+      </div>
+       <div *ngIf="price.errors.pattern">
+        Giá sản phẩm không hợp lệ, từ 10 - 100000
+      </div>
+
+  </div>
+   <div class="form-group">
+    <label for="pwd">Chi tiết:</label>
+ <!--    <input type="text" class="form-control" id="pwd" formControlName=detail> -->
+      <textarea class="form-control" id="pwd" formControlName=detail rows="5"></textarea>
+    <div *ngIf="detail.invalid && (detail.dirty || detail.touched)" class="alert alert-danger"><div *ngIf="detail.errors.required">
+      Điền mô tả cho sản phẩm để người dùng dễ hiểu
+    </div>
+    <div *ngIf="detail.errors.minlength">
+      Mô tả phải trên 10 ký tự
+    </div>
+
+  </div>
+  </div>
+ 
+  <button type="button" class="btn btn-primary" (click)="save()">Submit</button>
+  <button type="button" class="btn btn -success"><a routerLink="/" class="btn btn -success">Clear</a></button>
+    </div>
+    <div class="col-md-6">
+       <img *ngIf="model.value.image == ''" src="https://www.blackbeltkaratestudio.com/wp-content/uploads/2017/04/default-image.jpg" width="500" >
+  <img *ngIf="model.value.image != ''" [src]="model.value.image"><br>
+    </div>
+  </div>
+</div>
+
+  

@@ -1,0 +1,21 @@
+<div class="container"> 
+	<a routerLink="/addhotel" class="btn btn-success">Thêm </a>
+	<br>
+	<div class="row">
+
+		<div class="card" style="width: 18rem;margin:3%" *ngFor="let hote of hotel">
+			
+  <img [src]="hote.image" class="card-img-top" alt="...">
+  
+  <div class="card-body">
+  	<a routerLink="hote-detail/{{hote.id}}">
+    <h5 class="card-title">Hotel name:{{hote.hotel_name}}</h5></a>
+	<h5 class="card-title">Địa chỉ{{hote.address}}</h5>
+    <h5 class="card-title">City:{{hote.city}}</h5>
+    <img [src]="hote.owner_image" class="card-img-top" alt="...">
+    <a routerLink="edit-hotel/{{hote.id}}"class="btn btn-primary">Edit</a> 
+    <button class="btn btn-warning" (click)=removeHotel(hote)>Remove</button>
+  </div>
+</div>
+	</div>
+

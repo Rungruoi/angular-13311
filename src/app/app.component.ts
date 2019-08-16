@@ -16,7 +16,7 @@ export class AppComponent {
     ){
 
   }
-    // //cai cưt
+   
  /* newstuden = {
     id:0,
     name: "",

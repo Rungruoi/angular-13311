@@ -1,0 +1,51 @@
+<!-- <div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h1>Thêm Hotel</h1>
+			<div class="form-group">
+
+				<label for="email">Tên khách sạn</label>
+				<input (keyup)="model.hotel_name = $event.target.value"
+				type="text" [value]="model.hotel_name" class="form-control">
+			</div>
+			<div class="form-group">
+
+
+				<label for="email">Địa chỉ</label>
+				<input (keyup)="model.address = $event.target.value"
+				type="text" [value]="model.address" class="form-control">
+			</div>
+			<div class="form-group">
+
+
+				<label for="email">Thành phố</label>
+				<input (keyup)="model.city = $event.target.value"
+				type="text" [value]="model.city" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="email">Ảnh khách sạn</label>
+				<input 
+				(keyup)="model.image = $event.target.value"
+				type="text" [value]="model.image" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="email">Ảnh Oner_image</label>
+				<input 
+				(keyup)="model.owner_image = $event.target.value"
+				type="text" [value]="model.owner_image" class="form-control">
+			</div>
+
+			<button type="button" (click)="saveEdit()" class="btn btn-success">Lưu lại</button>
+
+			<button type="button" (click)="clear()" class="btn btn-danger"><a routerLink="/hotel">Hủy</a></button>
+		</div>
+			<div class="col-md-6">
+				<img *ngIf="model.image == ''" src="https://www.blackbeltkaratestudio.com/wp-content/uploads/2017/04/default-image.jpg" width="300" >
+				<img *ngIf="model.image != ''" [src]="model.image"><br>
+			</div>
+
+		 
+
+	</div>
+</div>
+ -->

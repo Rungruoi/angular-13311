@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,7 +8,9 @@ import {AddCateComponent} from './screens/add-cate/add-cate.component';
 import {AddProductComponent} from './screens/add-product/add-product.component';
 import {EditCateComponent} from './screens/edit-cate/edit-cate.component';
 import {EditProductComponent} from './screens/edit-product/edit-product.component';
-
+import {HotelComponent} from './screens/hotel/hotel.component';
+import {AddHotelComponent} from './screens/add-hotel/add-hotel.component';
+import {EditHotelComponent} from './screens/edit-hotel/edit-hotel.component';
 
 const routes: Routes = [
 		
@@ -16,7 +19,7 @@ const routes: Routes = [
 		component:HomeComponent
 	},
 	{
-		path:"cate-detail/:id",
+		path:"cate-detail/:cateid",
 		component:CateDetailComponent
 	},
 	{
@@ -24,17 +27,30 @@ const routes: Routes = [
 		component:AddCateComponent
 	},
 	{
-		path:"editcate",
+		path:"edit-cate/:id",
 		component:EditCateComponent
 	},
 	{
-		path:"addproduct",
+		path:"cate-detail/:cateid/addproduct",
 		component:AddProductComponent
 	},
 	{
-		path:"editproduct",
+		path:"cate-detail/:cateid/edit-product/:id",
 		component:EditProductComponent
+	},
+	{
+		path:"hotel",
+		component:HotelComponent
+	},
+	{
+		path:"hotel/edit-hotel/:id",
+		component:EditHotelComponent
+	},
+	{
+		path:"addhotel",
+		component:AddHotelComponent
 	}
+	
 
 ];
 

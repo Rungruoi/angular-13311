@@ -1,5 +1,5 @@
-import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
-import {Router, ActivatedRoute, ParamMap} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+//import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 import {CategoryService} from './../../services/category.service';
 
 @Component({
@@ -9,9 +9,6 @@ import {CategoryService} from './../../services/category.service';
 })
   export class HomeComponent implements OnInit {
   
-  @Output() removeEvent = new EventEmitter<any>();
-  @Output() editEvent = new EventEmitter<any>();
-
   constructor(
     private cateService: CategoryService,
   	// private route: ActivatedRoute,
@@ -27,12 +24,15 @@ import {CategoryService} from './../../services/category.service';
 
    category=[];
  
-  childOnRemove(rmObj){
-  	this.removeEvent.emit(rmObj);
-  }
-  childOnEdit(editObj){
-  	this.editEvent.emit(editObj);
-  }
+   removeCategory(cate){
+    this.cateService.removeCategory(cate.id)
+        .subscribe((data) => {
+          console.log(data);
+          this.category = this.category.filter(
+            (item) => item.id != cate.id
+          )
+        });
+  } 
 
 
 }

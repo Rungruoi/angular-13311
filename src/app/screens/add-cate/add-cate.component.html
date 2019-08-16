@@ -1,14 +1,47 @@
-<div class="hs">
-	<h1>Thêm danh mục</h1>
-	Tên danh mục: <input (keyup)="editItem.name = $event.target.value"
-				type="text" [value]="editItem.name">
-	<br>
+<div class="container">
+	<form [formGroup]="model">
+	<div class="row">
+		
+			<div class="col-md-6">
+				<h1>Thêm danh mục</h1>
+				<div class="form-group">
+					<label for="email">Tên danh mục</label>
+					<input type="text"  class="form-control"  formControlName="name">
+				<div *ngIf="name.invalid && (name.dirty || name.touched)"
+				    class="alert alert-danger">
 
-	Ảnh danh mục <input 
-				(keyup)="editItem.avatar = $event.target.value"
-				type="text" [value]="editItem.avatar">
-	<br>
+ 				  <div *ngIf="name.errors.required">
+				    Điền tên danh mục
+				  </div>
+				  <div *ngIf="name.errors.minlength">
+				    Tên danh mục cần ít nhất 4 ký tự
+				  </div>
+				 
+				</div>
+				</div>
+							<div class="col-md-6 right">
+				<img *ngIf="model.value.avatar == ''" src="https://www.blackbeltkaratestudio.com/wp-content/uploads/2017/04/default-image.jpg" width="400" >
+				<img *ngIf="model.value.avatar != ''" [src]="model.value.avatar"><br>
+			</div>
+				<div class="form-group">
+					<label for="email">Ảnh danh mục</label>
+					<input type="text"  class="form-control" formControlName="avatar">
+					 <div *ngIf="avatar.invalid && (avatar.dirty || avatar.touched)"
+				    class="alert alert-danger">
 
-	<button type="button" (click)="save()">Lưu lại</button>
-	<button type="button" (click)="clear()">Hủy</button>
-</div>  
+ 				  <div *ngIf="avatar.errors.required">
+				    Điền đường dẫn ảnh
+				  </div>
+				</div>
+				</div>
+
+				<button type="button"   (click)="save()" class="btn btn-success">Lưu lại</button>
+
+				<button type="button" (click)="clear()" class="btn btn-danger"><a routerLink="/">Hủy</a></button>
+			</div>
+
+		
+	</div>
+	</form>
+	
+</div>

@@ -1,17 +1,34 @@
+
 <div class="container"> 
-	<button type="button"><a href="/addcate">Thêm danh mục</a></button>
 
-	<div *ngFor="let cate of category" class="cate-tab">
-		<a href="./cate-detail/{{cate.id}}"><h2>{{cate.name}}</h2></a>
-		<img [src]="cate.avatar" width="200">
-		<br>
-		<button type="button" (click)="childOnEdit(itemCate)">Edit</button>
-		<button type="button" (click)="childOnRemove(cate)">Remove</button>
-	</div>
+	<a routerLink="/addcate" class="btn btn-success">Thêm danh mục</a>
+	<br>
+	<div class="row">
+
+		<div class="card" style="width: 18rem;margin:3%" *ngFor="let cate of category">
+      
+			<a routerLink="cate-detail/{{cate.id}}">
+  <img [src]="cate.avatar" class="card-img-top" alt="..."></a>
+  <div class="card-body">
+  	<a routerLink="cate-detail/{{cate.id}}">
+    <h5 class="card-title">{{cate.name}}</h5></a>
+    
+    <a routerLink="./edit-cate/{{cate.id}}"class="btn btn-primary"><i class="fas fa-trash-alt"></i>
+    Edit</a>
+    <button class="btn btn-warning"  (click)=removeCategory(cate)>Remove</button>
+        <!-- Button trigger modal -->
+
+        <a href="/" title="BCDONLINE CONFIRM YES/ NO" onclick="return confirmAction()">Click demo on link</a>
+
+  </div>
+
+ <SCRIPT LANGUAGE="JavaScript">
+      function confirmAction() {
+        return confirm("Bạn có chắc sẽ làm điều dại dột này?")
+      }
+   
+</SCRIPT> 
 </div>
-
-
-
 
 
 
